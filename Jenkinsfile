@@ -21,7 +21,7 @@ pipeline {
         }
 	stage('Deploy to qal'){
             steps {
-                sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && kubectl apply -f k8s/deploy-qal.yml --record && kubectl rollout status deploy hello-world-deploy'
+                sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && kubectl apply -f k8s/deploy-qal.yml --record && kubectl rollout status deploy hello-world-deploy-qal'
             }
         }
 	stage('qal tests'){

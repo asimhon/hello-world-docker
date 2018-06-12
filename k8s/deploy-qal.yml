@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world-deploy
+  name: hello-world-deploy-qal
 spec:
   replicas: 4
   minReadySeconds: 10
@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: hello-world-app
+        app: hello-world-app-qal
     spec:
       containers:
       - name: hello-world-pod
