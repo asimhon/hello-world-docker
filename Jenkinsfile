@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t hello-world .'
+                sh 'docker build -t hello-world . && echo "Branch: $BRANCH"'
             }
         }
         stage('Tests'){
