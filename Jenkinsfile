@@ -7,7 +7,7 @@ pipeline {
                 sh 'docker build -t hello-world .'
             }
         }
-        stage('Test'){
+        stage('Tests'){
             steps {
                 sh 'dgoss run hello-world'
             }
@@ -24,7 +24,7 @@ pipeline {
                 sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && kubectl apply -f k8s/deploy-qal.yml --record && kubectl rollout status deploy hello-world-deploy'
             }
         }
-	stage('qal test'){
+	stage('qal tests'){
             steps {
                 sh 'tests/test-response.sh qal'
             }

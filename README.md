@@ -1,2 +1,4 @@
 # hello-world-docker
-hello-world in docker 
+
+This is a docker project managed by K8S with Jenkins declarative pipeline
+
