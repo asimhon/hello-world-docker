@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: hello-world-pod
-        image: 467269547207.dkr.ecr.us-west-2.amazonaws.com/hello-world
+        image: 467269547207.dkr.ecr.us-west-2.amazonaws.com/hello-world:VERSION
         ports:
         - containerPort: 80
         livenessProbe:
