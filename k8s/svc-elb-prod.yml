@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: hello-world-lb-prod
   labels:
-    app: hello-world-app
+    app: hello-world-app-prod
 spec:
   type: NodePort
   sessionAffinity: ClientIP
@@ -14,4 +14,4 @@ spec:
     nodePort: 30003
     protocol: TCP
   selector:
-    app: hello-world-app
+    app: hello-world-app-prod
