@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test'){
             steps {
-                sh '/usr/local/bin/dgoss run hello-world'
+                sh 'sudo /usr/local/bin/dgoss run hello-world'
             }
         }
         stage('Publish Artifact'){
