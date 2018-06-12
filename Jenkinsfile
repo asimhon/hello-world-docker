@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Publish Artifact'){
             steps {
-                sh 'eval $(aws ecr get-login --no-include-email --region eu-west-1) && \
+                sh 'eval $(aws ecr get-login --no-include-email --region us-west-2) && \
 			docker tag hello-world 467269547207.dkr.ecr.us-west-2.amazonaws.com/hello-world && \
 			docker push 467269547207.dkr.ecr.us-west-2.amazonaws.com/hello-world'
             }
