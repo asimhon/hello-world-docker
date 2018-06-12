@@ -21,7 +21,7 @@ pipeline {
         }
 	stage('Deploy to qal'){
             steps {
-                sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && sed -i "s/VERSION/$Version/g k8s/deploy-qal.yml && "kubectl apply -f k8s/deploy-qal.yml --record && kubectl rollout status deploy hello-world-deploy-qal'
+                sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && sed -i "s/VERSION/$Version/g" k8s/deploy-qal.yml && kubectl apply -f k8s/deploy-qal.yml --record && kubectl rollout status deploy hello-world-deploy-qal'
             }
         }
 	stage('qal tests'){
@@ -31,7 +31,7 @@ pipeline {
         }
 	stage('Deploy Prod'){
             steps {
-                sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && sed -i "s/VERSION/$Version/g k8s/deploy-prod.yml && kubectl apply -f k8s/deploy-prod.yml --record && kubectl rollout status deploy hello-world-deploy-prod'
+                sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && sed -i "s/VERSION/$Version/g" k8s/deploy-prod.yml && kubectl apply -f k8s/deploy-prod.yml --record && kubectl rollout status deploy hello-world-deploy-prod'
             }
         }
 	stage('Production tests'){
