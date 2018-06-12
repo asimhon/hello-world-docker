@@ -24,9 +24,19 @@ pipeline {
                 sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && kubectl apply -f k8s/deploy-qal.yml --record && kubectl rollout status deploy hello-world-deploy'
             }
         }
+	stage('Test qal'){
+            steps {
+                sh 'tests/test-response.sh qal'
+            }
+        }
 	stage('Deploy prod'){
             steps {
                 sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && kubectl apply -f k8s/deploy-prod.yml --record && kubectl rollout status deploy hello-world-deploy-prod'
+            }
+        }
+	stage('Test prod'){
+            steps {
+                sh 'tests/test-response.sh prod'
             }
         }
     }
