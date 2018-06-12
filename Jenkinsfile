@@ -21,7 +21,7 @@ pipeline {
         }
 	stage('Deploy'){
             steps {
-                sh 'kubectl apply -f k8s/deploy.yml --record && kubectl rollout status deploy hello-world-deploy'
+                sh 'export KUBECONFIG=$KUBECONFIG:~/.kube/config-cluster1 && kubectl apply -f k8s/deploy.yml --record && kubectl rollout status deploy hello-world-deploy'
             }
         }
     }
