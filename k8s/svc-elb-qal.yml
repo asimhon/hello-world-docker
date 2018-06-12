@@ -1,14 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: hello-world-lb
+  name: hello-world-lb-qal
   labels:
     app: hello-world-app
 spec:
-  type: LoadBalancer
+  type: NodePort
+  sessionAffinity: ClientIP
   ports:
-  - port: 80
-    targetPort: 80
+  - name: http
+    protocol: TCP
+    port: 80
+    nodePort: 30002
     protocol: TCP
   selector:
     app: hello-world-app
