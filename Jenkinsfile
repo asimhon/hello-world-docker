@@ -15,7 +15,7 @@ pipeline {
         stage('Publish Docker'){
             steps {
                 sh 'eval $(aws ecr get-login --no-include-email --region us-west-2) && \
-			./version.sh \
+			./version.sh && \
 			docker tag hello-world 467269547207.dkr.ecr.us-west-2.amazonaws.com/hello-world:$(cat version) && \
 			docker push 467269547207.dkr.ecr.us-west-2.amazonaws.com/hello-world:$(cat version)'
             }
