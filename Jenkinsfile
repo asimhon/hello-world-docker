@@ -19,5 +19,10 @@ pipeline {
 			docker push 467269547207.dkr.ecr.us-west-2.amazonaws.com/hello-world'
             }
         }
+	stage('Deploy'){
+            steps {
+                sh 'kubectl apply -f k8s/deploy.yml --record && kubectl rollout status deploy hello-world-deploy'
+            }
+        }
     }
 }
