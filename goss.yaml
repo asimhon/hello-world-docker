@@ -11,7 +11,6 @@ file:
   /usr/src/myapp.jar:
     exists: true
     mode: "0640"
-    size: 16303102
     owner: root
     group: root
     filetype: file
