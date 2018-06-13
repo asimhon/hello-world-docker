@@ -1,0 +1,12 @@
+file:
+  /var/www/html/index.php:
+    exists: true
+    mode: "0640"
+    size: 57
+    owner: nginx
+    group: nginx
+    filetype: file
+    contains: []
+package:
+  nginx:
+    installed: false

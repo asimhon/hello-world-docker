@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Docker Tests'){
             steps {
-                sh 'dgoss run hello-world'
+                sh 'GOSS_SLEEP=10 dgoss run hello-world'
             }
         }
         stage('Publish Docker'){
