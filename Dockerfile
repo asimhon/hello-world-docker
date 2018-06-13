@@ -1,11 +1,10 @@
 # Get image
-FROM richarvey/nginx-php-fpm:latest
+FROM java:8
 
-# Add index
-ADD files/index.php /var/www/html/index.php
+# Add app
+ADD java-app/target/demo-eng-days-0.0.1-SNAPSHOT.jar /usr/src/myapp.jar
 
 EXPOSE 80
 
-# Run nginx when the container launches
-#CMD ["nginx", "-g", "daemon off;"]
-CMD ["/start.sh"]
+# application
+CMD ["java", "-jar", "/usr/src/myapp.jar"]
