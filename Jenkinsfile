@@ -4,10 +4,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'export JAVA_HOME="/opt/jdk1.8.0_171/" && cd java-app && mvn clean package'
+            }
+        }
+        stage('Pack to Docker') {
+            steps {
                 sh 'docker build -t hello-world .'
             }
         }
-        stage('Tests'){
+        stage('Docker Tests'){
             steps {
                 sh 'dgoss run hello-world'
             }
