@@ -1,12 +1,30 @@
 file:
-  /var/www/html/index.php:
+  /usr/bin/java:
+    exists: true
+    mode: "0777"
+    size: 22
+    owner: root
+    group: root
+    linked-to: /etc/alternatives/java
+    filetype: symlink
+    contains: []
+  /usr/src/myapp.jar:
     exists: true
     mode: "0640"
-    size: 57
-    owner: nginx
-    group: nginx
+    size: 16303102
+    owner: root
+    group: root
     filetype: file
     contains: []
-package:
-  nginx:
-    installed: false
+port:
+  tcp:80:
+    listening: true
+    ip:
+    - 0.0.0.0
+http:
+  http://localhost:
+    status: 200
+    allow-insecure: false
+    no-follow-redirects: false
+    timeout: 5000
+    body: []
